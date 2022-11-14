@@ -19,7 +19,7 @@ public class Main21 {
         System.out.println("list10: " + list10);
 
 
-        Map<String, List> mapList = new HashMap<>(Map.of(
+        Map<String, List<Integer>> mapList = new HashMap<>(Map.of(
                 "str1", list1,
                 "str2", list2,
                 "str3", list3,

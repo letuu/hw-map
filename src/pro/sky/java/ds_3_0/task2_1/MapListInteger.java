@@ -5,14 +5,14 @@ import java.util.*;
 public class MapListInteger {
 
     private static final int sizeList = 3;
-    private Map<String, List> map = new HashMap<>();
+    private Map<String, List<Integer>> map = new HashMap<>(); //без этого поля тоже работает
 
-    public static Map<String, Integer> listToInteger(Map<String, List> mapList) {
+    public static Map<String, Integer> listToInteger(Map<String, List<Integer>> mapList) {
         Map<String, Integer> mapInt = new HashMap<>();
-        for (Map.Entry<String, List> keyValue : mapList.entrySet()) {
-            int multiplicationValue = 1;
+        for (Map.Entry<String, List<Integer>> keyValue : mapList.entrySet()) {
+            int multiplicationValue = 0;
             for (int i = 0; i < sizeList; i++) {
-                multiplicationValue *= (int) keyValue.getValue().get(i);
+                multiplicationValue += keyValue.getValue().get(i);  //если не типизировать List -> List<Integer>, то (int) keyValue.getValue().get(i);
             }
             mapInt.put(keyValue.getKey(), multiplicationValue);
         }
